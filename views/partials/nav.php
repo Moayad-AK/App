@@ -27,10 +27,16 @@
             </div>
             <div class="ms-auto p-2 bd-highlight">
                 <?php if ($_SESSION['user'] ?? false) : ?>
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
+                    <ul class="d-flex navbar-nav me-auto mb-2 mb-lg-0 ">
+                        <li class="nav-item align-self-center mx-3">
                             <!-- for XAMPP <a class="nav-link" href="/PHP/App/contact.php">Contact</a> -->
                             <p class="text-white my-auto"><?= $_SESSION['user']['email'] ?></p>
+                        </li>
+                        <li class="nav-item ">
+                            <form method="post" action="/sessions">
+                                <input type="hidden" name="_method" value="DELETE" />
+                                <button class="btn btn-outline-light">Log out</button>
+                            </form>
                         </li>
                     </ul>
                 <?php else : ?>
