@@ -30,8 +30,7 @@ $user = $db->query('select * from users where email = :email', [
 ])->find();
 
 if ($user) {
-    header('location: /');
-    exit();
+    redirect('/');
 } else {
     $db->query('INSERT INTO users(password, email) VALUES (:password, :email)', [
         'password' => password_hash($password, PASSWORD_BCRYPT),
@@ -41,6 +40,5 @@ if ($user) {
     $_SESSION['user'] = [
         'email' => $email
     ];
-    header('location: /');
-    exit();
+    redirect('/');
 }
