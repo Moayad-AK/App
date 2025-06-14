@@ -1,7 +1,7 @@
 <?php
 
+use Core\Session;
 
 view("sessions/create.view.php", [
-    'title' => 'Log In Page',
-    'errors' => []
+    'errors' => Session::get('errors')
 ]);

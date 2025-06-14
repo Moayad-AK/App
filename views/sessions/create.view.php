@@ -4,10 +4,10 @@
 
 <main class="text-center my-auto">
     <div class="container " style="padding-top: 40px;">
-        <form action="/sessions" method="post" >
+        <form action="/sessions" method="post">
             <h1 class="h3 mb-3 fw-normal">Log In to your account</h1>
             <div class="form-floating">
-                <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
+                <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" value="<?= old('email') ?>">
                 <label for="floatingInput">Email address</label>
                 <?php if (isset($errors['email'])) : ?>
                     <p class="fs-6 text-danger mt-3 fw-normal"><?= $errors['email'] ?></p>

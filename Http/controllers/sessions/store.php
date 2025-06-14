@@ -1,6 +1,7 @@
 <?php
 
 use Core\Authenticator;
+use Core\Session;
 use Http\Forms\LoginForm;
 
 $email = $_POST['email'];
@@ -20,7 +21,10 @@ if ($form->validate($email, $password)) {
 }
 
 
-return view("sessions/create.view.php", [
-    'title' => 'Log In Page',
-    'errors' => $form->errors()
+Session::flash('errors', $form->errors());
+
+Session::flash('old', [
+    'email' => $_POST['email']
 ]);
+
+return redirect('/login');
